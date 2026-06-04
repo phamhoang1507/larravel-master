@@ -10,6 +10,8 @@ WORKDIR /var/www
 
 COPY . /var/www
 
+RUN composer install --no-interaction --optimize-autoloader --no-dev
+
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 775 storage bootstrap/cache
 
